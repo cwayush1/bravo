@@ -1,0 +1,79 @@
+<%layout("/layout/boilerplate")%>
+<h2>Edit-</h2>
+<br />
+<div class="row">
+  <div class="col-8 offset-2">
+    <form
+      method="POST"
+      action="/listing/<%=listing._id%>?_method=PUT"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input
+          name="listing[title]"
+          id="title"
+          value="<%=listing.title%>"
+          type="text"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea
+          name="listing[description]"
+          id="description"
+          type="text"
+          class="form-control"
+          required
+        >
+<%=listing.description%></textarea
+        >
+      </div>
+      <div class="mb-3">
+        Original Listing Image<br/>
+        <img src="<%=originalImageUrl%>">
+      </div>
+      <div class="mb-3">
+        <label for="filename" class="form-label">Upload new image:</label>
+        <input
+          name="listing[image]"
+          id="filename"
+          type="file"
+          class="form-control"
+        />
+      </div>
+     
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="location" class="form-label">Location:</label>
+          <input
+            name="listing[location]"
+            id="location"
+            value="<%=listing.location%>"
+            type="text"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country:</label>
+          <input
+            name="listing[country]"
+            id="country"
+            value="<%=listing.country%>"
+            type="text"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+      <br /><br /><br />
+      <button class="btn btn-dark b1">save changes</button><br /><br />
+    </form>
+  </div>
+</div>
+<script src="/js/script.js"></script>
