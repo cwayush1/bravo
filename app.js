@@ -64,7 +64,7 @@ const sessionOption = {
 };
 
 app.get("/", (req, res) => {
-  res.redirect("/listing");
+  res.redirect("https://bravo-1-348z.onrender.com/listing");
 });
 
 app.use(session(sessionOption));
