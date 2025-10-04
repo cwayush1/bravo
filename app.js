@@ -1,6 +1,7 @@
+if(process.env.NODE_ENV!="production"){
 require("dotenv").config();
 console.log(process.env);
-
+}
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -62,9 +63,9 @@ const sessionOption = {
   },
 };
 
-// app.get("/", (req, res) => {
-//   res.send("hello bro!! dont worry");
-// });
+app.get("/", (req, res) => {
+  res.redirect("/listing");
+});
 
 app.use(session(sessionOption));
 app.use(flash()); //it should be before routes
