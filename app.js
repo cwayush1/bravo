@@ -39,7 +39,7 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-  mongoUrl: dbUrl,
+  mongoUrl: dbURL,
   crytpo: {
     secret: process.env.SECRET,
   },
@@ -52,7 +52,7 @@ store.on("error", () => {
 
 const sessionOption = {
   store,
-  secret:process.env.SECRET,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
